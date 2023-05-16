@@ -1,0 +1,27 @@
+<html>
+<head>
+  <title>リンク集</title>
+  <style>
+    /* ������CSS������ */
+  </style>
+</head>
+<body>
+  <h1>リンク集</h1>
+  <div id="linkList"></div>
+
+  <script>
+    fetch('https://script.google.com/macros/s/AKfycbzFDhJAuyHEesoUetT71VLJ9tX9A6VTCHKGBIYYwcd7tSEzofJD22_wsU8Vs1lQi_2N7Q/exec')
+      .then(response => response.json())
+      .then(data => {
+        var linkListElement = document.getElementById('linkList');
+        data.forEach(row => {
+          var a = document.createElement('a');
+          a.href = row.url;
+          a.textContent = row.siteName;
+          linkListElement.appendChild(a);
+          linkListElement.appendChild(document.createElement('br'));
+        });
+      });
+  </script>
+</body>
+</html>
